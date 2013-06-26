@@ -1,0 +1,241 @@
+// ---- CSS3 SASS MIXINS ----
+// https://github.com/madr/css3-sass-mixins
+//  
+//  Copyright (C) 2011 by Anders Ytterström
+//  
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
+
+// ---- LEGACY IE SUPPORT USING FILTERS ----
+//  Should IE filters be used or not?
+//  PROS: gradients, drop shadows etc will be handled by css.
+//  CONS: will harm the site performance badly, 
+//        especially on sites with heavy rendering and scripting.
+$useIEFilters: 0
+
+// might be 0 or 1. disabled by default.
+// ---- /LEGACY IE SUPPORT USING FILTERS ----
+
+=background-size($value)
+  -webkit-background-size: $value
+  background-size: $value
+
+=border-image($path, $offsets, $repeats)
+  -moz-border-image: $path $offsets $repeats
+  -o-border-image: $path $offsets $repeats
+  -webkit-border-image: $path $offsets $repeats
+  border-image: $path $offsets $repeats
+
+=border-radius($values)
+  -moz-border-radius: $values
+  -webkit-border-radius: $values
+  border-radius: $values
+  -moz-background-clip: padding
+  -webkit-background-clip: padding-box
+  background-clip: padding-box
+
+=box-shadow($x, $y, $offset, $hex, $ie: $useIEFilters)
+  -moz-box-shadow: $x $y $offset $hex
+  -webkit-box-shadow: $x $y $offset $hex
+  box-shadow: $x $y $offset $hex
+  @if $ie == 1
+    $iecolor: "#" + red($hex) + green($hex) + blue($hex)
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x}, OffY=#{$y}, Color='#{$iecolor}')
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x}, OffY=#{$y}, Color='#{$iecolor}'))
+
+=box-sizing($value)
+  -moz-box-sizing: $value
+  -webkit-box-sizing: $value
+  box-sizing: $value
+
+// requires sass 3.2
+//@mixin keyframes {
+//     @-moz-keyframes { @content }
+//      @-ms-keyframes { @content }
+//       @-o-keyframes { @content }
+//  @-webkit-keyframes { @content }
+//          @keyframes { @content }
+//}
+
+=linear-gradient($from, $to, $ie: $useIEFilters)
+  @if $ie != 1
+    background-color: $to
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to))
+  background-image: -webkit-linear-gradient(top, $from, $to)
+  background-image: -moz-linear-gradient(top, $from, $to)
+  background-image: -ms-linear-gradient(top, $from, $to)
+  background-image: -o-linear-gradient(top, $from, $to)
+  background-image: linear-gradient(top, bottom, $from, $to)
+  @if $ie == 1
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}')
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}'))
+
+=rgba-bg($hex, $alpha, $ie: $useIEFilters)
+  @if $ie == 1
+    background-color: none
+    $hexopac: ie-hex-str(rgba($hex, $alpha))
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$hexopac}',EndColorStr='#{$hexopac}}')
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$hexopac}',EndColorStr='#{$hexopac}'))
+  @else
+    background-color: $hex
+    background-color: rgba($hex, $alpha)
+
+=perspective($perspective)
+  -moz-perspective: $perspective
+  -ms-perspective: $perspective
+  -webkit-perspective: $perspective
+  perspective: $perspective
+  -moz-transform-style: preserve-3d
+  -ms-transform-style: preserve-3d
+  -webkit-transform-style: preserve-3d
+  transform-style: preserve-3d
+
+=transform($transforms)
+  -moz-transform: $transforms
+  -o-transform: $transforms
+  -ms-transform: $transforms
+  -webkit-transform: $transforms
+  transform: $transforms
+
+=matrix($a, $b, $c, $d, $e, $f)
+  -moz-transform: matrix($a, $b, $c, $d, #{$e}px, #{$f}px)
+  -o-transform: matrix($a, $b, $c, $d, $e, $f)
+  -ms-transform: matrix($a, $b, $c, $d, $e, $f)
+  -webkit-transform: matrix($a, $b, $c, $d, $e, $f)
+  transform: matrix($a, $b, $c, $d, $e, $f)
+
+=rotate($deg)
+  +transform(rotate(#{$deg}deg))
+
+=scale($size)
+  +transform(scale(#{$size}))
+
+=translate($x, $y)
+  +transform(translate($x, $y))
+
+=transition($value...)
+  -moz-transition: $value
+  -o-transition: $value
+  -ms-transition: $value
+  -webkit-transition: $value
+  transition: $value
+
+// ==== /CSS3 SASS MIXINS ====
+
+// source: https://github.com/thoughtbot/bourbon/
+
+=clearfix
+  zoom: 1
+  &:before, &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+
+
+// text-shadow (modified version of http://forrst.com/posts/SASS_Mixins-BkO)
+
+=text-shadow($h, $v, $b, $c)
+  -moz-text-shadow: $h $v $b $c
+  -webkit-text-shadow: $h $v $b $c
+  -o-text-shadow: $h $v $b $c
+  text-shadow: $h $v $b $c
+
+=column($cols)
+  :float left
+  :width 100%/$cols
+
+=cool-shadow
+  :width 100%
+  :margin-right 0
+  :height 8px
+  :position absolute
+  :top 0
+  :left 0
+  :opacity 0
+  :border-top 1px solid rgba(0, 0, 0, 0.4)
+  :background -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, .2)), to(transparent))
+  :-webkit-mask-box-image -webkit-gradient(linear, left top, right top, color-stop(0.0, rgba(0,0,0,0)), color-stop(0.5, rgba(0,0,0,.8)), color-stop(1.0, rgba(0,0,0,0)))
+
+// btn and buttonStyle mixins mainly from https://gist.github.com/2591857
+
+=btn($bottom: gray, $top: white, $border: black, $highlight: blue, $lowlight: gray, $text: white, $radius: 5px)
+  :border 1px solid $border
+  :color $text
+  :border-radius $radius
+  :box-shadow inset 0 1px 0px $highlight, 0 2px 0px $lowlight
+  :text-shadow 0px -1px 0px rgba(100, 100, 100, .5)
+  :background $bottom
+  :padding 6px 24px
+  :margin 5px
+  :cursor pointer
+  :outline 0 none
+  +linear-gradient($top, $bottom)
+  &:hover
+    +linear-gradient(lighten($top,5%), $bottom)
+    :outline 0 none
+  &:active
+    :outline 0 none !important
+    +linear-gradient($bottom, $top)
+  &:focus
+    :outline thin #333333
+  &::-moz-focus-inner
+    :outline 0 none !important
+
+// make a button from a single color + optionally radius
+=buttonStyle($base-color, $radius: 5px)
+  $gray-border-color: #ababab
+  $light-gray-text-color: #777
+  $text-color: if(lightness($base-color) < 50, #ffffff, #000000)
+  $gray: if(saturation($base-color) < 10, true, false)
+  $gray-text-color: if(lightness($base-color) > 68, $light-gray-text-color, $text-color)
+  $text: if($gray, $gray-text-color, $text-color)
+  $bottom-color: desaturate(darken(adjust_hue($base-color, -7), 3%), 1%)
+  $border-color: desaturate(darken(adjust_hue($base-color, -13), 3%), 1%)
+  $border-color: if($gray, $gray-border-color, $border-color)
+  $highlight-color: lighten(desaturate($base-color, 5%), 15%)
+  $lowlight-color: hsl(hue($base-color) - 20, 38%, 90%)
+  +btn($bottom-color, $base-color, $border-color, $highlight-color, $lowlight-color, $text, $radius)
+
+// input boxes
+
+=input($basecolor, $radius: 5px)
+  :background-color #fefefe
+  :width 90%
+  :max-width 300px
+  +border-radius($radius)
+  :border 1px solid #ccc
+  :display inline-block
+  :color #555
+  :font-size 13px
+  :padding 4px
+  :text-decoration none
+  +text-shadow(1px, 1px, 0px, #fff)
+  &:hover
+    :-moz-box-shadow inset 0px 2px 0px 0px #ccc
+    :-webkit-box-shadow inset 0px 2px 0px 0px #ccc
+    :box-shadow inset 0px 2px 0px 0px #ccc
+    :border 1px solid #888
+  &:focus
+    :-moz-box-shadow inset 0px 3px 0px 0px $basecolor
+    :-webkit-box-shadow inset 0px 3px 0px 0px $basecolor
+    :box-shadow inset 0px 3px 0px 0px $basecolor
+    :border 1px solid darken($basecolor,10%)
+    :color $main-font-color
+    :outline 0 none
