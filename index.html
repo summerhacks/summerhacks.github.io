@@ -4,22 +4,27 @@
 	<title>SummerHacks</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<script type="text/javascript" src='js/background.js'></script>
+	<script type="text/javascript" src='js/skrollr.min.js'></script>
 	<script type="text/javascript" src='js/init.js'></script>
 </head>
 <body>
 	<!-- first section -->
 	<header id='home'>
+		<div id='logo' data-0="top:220px;" data-500="top:10px;">
+			<img src="images/big.png" alt="SummerHacks" />
+		</div>
 
-		<img src="images/big.png" alt="SummerHacks"/>
+		<div class='presentation' data-0="opacity:0" data-200="top:470px;" data-600="top:250px;opacity:1;">
+			<article>
+				<p>48 hours</p>
+				<p>23-25 August</p>
+				<p>Timișoara</p>
+			</article>
+		</div>
+	</header>
 
-		<article>
-			<div class='event'>
-				<span>23-25 August</span>
-				<span>Timișoara</span>
-			</div>
-		</article>
-
+	<!-- floating menu -->
+	<aside id='floatnav'>
 		<nav>
 			<ul><li><a href="#home">home</a></li
 				><li><a href="#attending">why attend?</a></li
@@ -28,21 +33,6 @@
 				><li><a href="#sponsors">sponsors</a></li
 				><li><a href="#apply" class='applyLink'>apply</a></li
 			></ul>
-		</nav>
-	
-	</header>
-
-	<!-- floating menu -->
-	<aside id='floatnav'>
-		<nav>
-			<ul>
-				<li><a href="#home">home</a></li>
-				<li><a href="#attending">why attend?</a></li>
-				<li><a href="#people">speakers and mentors</a></li>
-				<li><a href="#judges">judges</a></li>
-				<li><a href="#sponsors">sponsors</a></li>
-				<li><a href="#apply" class='applyLink'>apply</a></li>
-			</ul>
 		</nav>
 	</aside>
 

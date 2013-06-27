@@ -11,21 +11,36 @@ nav ul li a
 
 
 #floatnav
-	display: none
 	position: fixed
 	top: 0
 	left: 0
 	z-index: 100
 	text-align: center
+	
+	nav
+		:text-align center
+		:position fixed
+		:bottom 70px
+		:text-align center
+		:width 100%
 
+		ul
+			background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 100%)
+			display: inline-block
+			+box-shadow(0px, 0px, 5px, rgba(0,0,0,0.5))
 
-#floatnav.active
-	display: block
+			li a
+				padding: 15px 30px
+				color: #333
+				font-weight: bold
+				text-decoration: none
+				+text-shadow(1px, 1px, 1px, rgba(255,255,255,0.8))
+				+transition(background 0.2s, color 0.1s)
 
-#floatnav ul
-	text-align: center
-	display: inline-block
-	background: #fff
+				&.applyLink
+					:color $dark-green
 
-#floatnav ul li a
-	padding: 5px
+				&:hover
+					color: #fff
+					background: $lemon-green
+					+text-shadow(1px, 1px, 1px, rgba(0,0,0,0.8))
