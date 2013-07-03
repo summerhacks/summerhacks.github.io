@@ -1,0 +1,23 @@
+#attending
+	:background #333
+	+box-shadow(0px, 0px, 20px, rgba(0,0,0,0.5))
+
+	article
+		:width 33.33333333%
+		:float left
+		:height 100%
+		:background url(/images/attending.png)
+		:z-index 9
+		:position relative
+		&:hover
+			:background url(/images/attending_hover.png)
+			:z-index 10
+			+box-shadow(0px, 0px, 20px, rgba(0,0,0,0.5))
+
+
+		h1
+			:color #fff
+			:font-size 2em
+			:margin 100px 0px 30px 0px
+			:text-align center
+			+text-shadow(1px, 1px, 5px, #000)

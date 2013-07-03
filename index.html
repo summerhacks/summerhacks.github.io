@@ -5,20 +5,36 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<script type="text/javascript" src='js/skrollr.min.js'></script>
+	<script type="text/javascript" src='js/raf-shim.js'></script>
+	<script type="text/javascript" src='js/background.js'></script>
+
 	<script type="text/javascript" src='js/init.js'></script>
 </head>
 <body>
 	<!-- first section -->
-	<header id='home'>
+	<header id='home' data-0="top:0%" data-1700="top:0%" data-1800="top:-100%">
+		<div id='clouds' data-290='top:0%' data-800='top:-100%'></div>
 		<div id='logo' data-0="top:220px;" data-500="top:10px;">
 			<img src="images/big.png" alt="SummerHacks" />
 		</div>
 
 		<div class='presentation' data-0="opacity:0" data-200="top:470px;" data-600="top:250px;opacity:1;">
-			<article>
+			<article class='left' 
+				data-250='opacity:0;text-indent:-300px'
+				data-1000='opacity:1;text-indent:0px'>
+				<p>free food</p>
+				<p>bring sleeping bags!</p>
+			</article>
+			<article class='centre'>
 				<p>48 hours</p>
 				<p>23-25 August</p>
 				<p>Timișoara</p>
+			</article>
+			<article class="right"
+				data-250='opacity:0;text-indent:300px'
+				data-1000='opacity:1;text-indent:0px'>
+				<p>60% tech</p>
+				<p>40% business</p>
 			</article>
 		</div>
 	</header>
@@ -37,15 +53,25 @@
 	</aside>
 
 
-	<section>
+	<section id='attending' data-0="top:100%;" data-1400="top:100%;" data-1800='top:0%'>
+		<article class='designer'>
+			<h1>Designer?</h1>
+		</article>
+		<article class='programmer'>
+			<h1>Programmer?</h1>
+		</article>
+		<article class="entrepreneur">
+			<h1>Entrepreneur?</h1>
+		</article>
+
 	</section>
 
-	<section>
+<!-- 	<section>
 	</section>
 
-	<!-- last section -->
+	last section
 	<footer id='footer'>
 
 	</footer>
-</body>
+ --></body>
 </html>
