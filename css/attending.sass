@@ -14,10 +14,53 @@
 			:z-index 10
 			+box-shadow(0px, 0px, 20px, rgba(0,0,0,0.5))
 
+			.applynowbtn
+				+buttonStyle(#B20000)
 
 		h1
 			:color #fff
 			:font-size 2em
-			:margin 100px 0px 30px 0px
+			:margin 0px 0px 30px 0px
+			:padding-top 100px
 			:text-align center
 			+text-shadow(1px, 1px, 5px, #000)
+
+		p
+			:color #fff
+			:font-size 1em
+			:padding 0px 30px
+			:text-align justify
+			:text-indent 30px
+			+text-shadow(0px, 0px, 1px, #000)
+
+		.applynowbtn
+			:text-decoration none
+			:display inline-block
+			:margin 0px auto
+			+buttonStyle(#933333)
+
+		.center
+			:padding-top 20px
+
+		.inner
+			:height 100%
+			:background-position center bottom
+			:background-repeat no-repeat
+
+		&.designer .inner
+			:background-image url(/images/emeza_lemon_gs.png)
+
+		&.designer:hover .inner
+			:background-image url(/images/emeza_lemon.png)
+
+		&.entrepreneur .inner
+			:background-image url(/images/business_gs.png)
+
+		&.entrepreneur:hover .inner
+			:background-image url(/images/business.png)
+
+		&.programmer .inner
+			:background-image url(/images/developer_gs.png)
+
+		&.programmer:hover .inner
+			:background-image url(/images/developer.png)
