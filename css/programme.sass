@@ -1,0 +1,55 @@
+#programme
+	:position fixed
+	:display none
+	:z-index 1
+	:background url(/images/cream_pixels.png)
+	+clearfix()
+
+	h1
+		:font-size 2em
+
+	h2
+		:font-size 1.3em
+		:margin 5px 5px 0px 5px
+		:padding 5px
+		:background #B20000
+		:color #fff
+
+	p, ul
+		:line-height 1.3em
+		:margin 0px 5px 0px 5px
+		:background #fff
+		:padding 5px
+		:border-style solid
+		:border-color #B20000
+		:border-width 0px 1px 1px 1px
+
+	ul li
+		:margin-left 25px
+
+	article
+		:margin 0px
+		:padding 0px
+
+
+	.day
+		:width 33.33333333%
+		:float left
+		+text-shadow(1px,1px,2px,rgba(255,255,255,0.8))
+		td
+			:padding 5px
+		td:first-child
+			:font-weight bold
+
+	.days
+		+clearfix()
+
+
+	.wrapper
+		:width 90%
+		:margin 0px auto
+		+clearfix()
+
+	.column
+		:margin-top 20px
+		+column(4)
