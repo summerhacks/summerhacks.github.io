@@ -1,7 +1,10 @@
+$panel-red: #B20000
+
 #programme
 	:position relative
 	:z-index 1
 	:background url(/images/cream_pixels.png)
+	:padding-bottom 150px
 	+clearfix()
 
 	h1
@@ -11,7 +14,7 @@
 		:font-size 1.3em
 		:margin 5px 5px 0px 5px
 		:padding 5px
-		:background #B20000
+		:background $panel-red
 		:color #fff
 
 	p, ul
@@ -20,7 +23,7 @@
 		:background #fff
 		:padding 5px
 		:border-style solid
-		:border-color #B20000
+		:border-color $panel-red
 		:border-width 0px 1px 1px 1px
 
 	ul li
@@ -44,11 +47,46 @@
 		+clearfix()
 
 
-	.wrapper
-		:width 90%
-		:margin 0px auto
-		+clearfix()
-
 	.column
 		:margin-top 20px
 		+column(4)
+
+	.longcol
+		:margin-top 20px
+		+column(1)
+
+	.content
+		:line-height 1.3em
+		:margin 0px 5px 0px 5px
+		:background #fff
+		:border-style solid
+		:border-color $panel-red
+		:border-width 0px 1px 1px 1px
+
+	.pictures
+		img
+			:margin 0
+			:padding 0
+			:width 50%
+			:height auto
+
+	.address
+		:margin-top -4px
+		:padding 15px 5px
+		+clearfix()
+
+	.submenu
+		:float right
+		a 
+			:display block
+			:width 150px
+			:padding 15px
+			:color darken($lemon-green,10%)
+			:text-decoration none
+			:font-weight bold
+			&:hover
+				:color #fff
+				:background $panel-red
+
+#map-canvas
+	:height 300px

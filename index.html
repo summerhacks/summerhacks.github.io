@@ -4,6 +4,9 @@
 	<title>SummerHacks</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="icon" type="image/png" href="/images/lemon.png" />
+
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 	<script type="text/javascript" src='js/skrollr.min.js'></script>
 	<script type="text/javascript" src='js/skrollr.menu.min.js'></script>
 	<script type="text/javascript" src='js/raf-shim.js'></script>
@@ -15,9 +18,9 @@
 	<!-- floating menu -->
 	<aside id='floatnav'>
 		<nav>
-			<ul><li><a href="#home" data-menu-top='0'>home</a></li
-				><li><a href="#attending" data-menu-top='1800'>why attend?</a></li
-				><li><a href="#programme" data-menu-top='2455'>programme</a></li
+			<ul><li><a href="#home">home</a></li
+				><li><a href="#attending">why attend?</a></li
+				><li><a href="#programme">programme</a></li
 				><li><a href="#judges">judges and mentors</a></li
 				><li><a href="#sponsors">sponsors</a></li
 				><li><a href="#apply" class='applyLink'>apply</a></li
@@ -26,16 +29,16 @@
 	</aside>
 
 	<!-- first section -->
-	<header id='home' data-0="top:0%;position:fixed" data-1700="top:0%" data-1800="top:-100%">
-		<div id='clouds' data-290='top:0%' data-800='top:-100%'></div>
-		<div id='logo' data-0="top:220px;" data-500="top:10px;">
+	<header id='home'>
+		<div id='clouds' ></div>
+		<div id='logo'>
 			<img src="images/big.png" alt="SummerHacks" />
 		</div>
 
-		<div class='presentation' data-0="opacity:0" data-200="top:470px;" data-600="top:250px;opacity:1;">
+		<div class='presentation' data-0="opacity:0" data-150="opacity:1;">
 			<article class='left' 
-				data-250='opacity:0;text-indent:-300px'
-				data-1000='opacity:1;text-indent:0px'>
+				data-0='opacity:0;text-indent:-300px'
+				data-150='opacity:1;text-indent:0px'>
 				<p>free food</p>
 				<p>bring sleeping bags!</p>
 			</article>
@@ -45,8 +48,8 @@
 				<p>Timișoara</p>
 			</article>
 			<article class="right"
-				data-250='opacity:0;text-indent:300px'
-				data-1000='opacity:1;text-indent:0px'>
+				data-0='opacity:0;text-indent:300px'
+				data-150='opacity:1;text-indent:0px'>
 				<p>60% tech</p>
 				<p>40% business</p>
 			</article>
@@ -55,42 +58,28 @@
 
 
 
-	<section id='attending' data-0="top:100%;position:fixed;display:none" data-1400="top:100%; display:block" data-1800='top:0%' data-2450='display:none'>
-		<article class='designer'
-			data-2000='transform: rotateY(0deg); transform-origin:0% 0%; box-shadow: 0px 0px 0px rgba(0,0,0,0.3)'
-			data-2400='transform: rotateY(-90deg); box-shadow: 0px 0px 200px rgba(0,0,0,0.3)'
-			data-2450='box-shadow: 0px 0px 0px rgba(0,0,0,0.3)'>
-			<div class='inner'>
-				<h1>Designer?</h1>
-				<p>Making a form look awesome, choosing the right fonts and making users of apps feel good and amused even when they see errors on the screen is something you love to do and you do it right. Come along - everyone will try to corrupt you in order to join their team.</p>
-				<div class="center"><a href="#" class='applynowbtn'>Apply now</a></div>
-			</div>
-		</article>
-		<article class='programmer'
-			data-2000='transform: rotateX(0deg); transform-origin:0% 0%; box-shadow: 0px 0px 0px rgba(0,0,0,0.3)'
-			data-2400='transform: rotateX(-180deg); box-shadow: 0px 0px 200px rgba(0,0,0,0.3)'
-			data-2450='box-shadow: 0px 0px 0px rgba(0,0,0,0.3)'>
-			<div class='inner'>
-				<h1>Programmer?</h1>
-				<p>Turning caffeine and pizza into amazing software is one of your favourite activities? Then this is the event you don't want to miss. Brilliant coders are the most important ingredient to every team at SummerHacks.</p>
-				<div class='center'><a href="#" class='applynowbtn'>Apply now</a></div>
-			</div>
-		</article>
-		<article class="entrepreneur"
-			data-2000='transform: rotateY(0deg); transform-origin:100% 100%; box-shadow: 0px 0px 0px rgba(0,0,0,0.3)'
-			data-2400='transform: rotateY(90deg); box-shadow: 0px 0px 200px rgba(0,0,0,0.3)'
-			data-2455='box-shadow: 0px 0px 0px rgba(0,0,0,0.3)'>
+	<section id='attending' >
+		<article class='designer'>
+			<h1>Designer?</h1>
+			<p>Making a form look awesome, choosing the right fonts and making users of apps feel good and amused even when they see errors on the screen is something you love to do and you do it right. Come along - everyone will try to corrupt you in order to join their team.</p>
+			<div class="center"><a href="#" class='applynowbtn' data-700='opacity:0;top:200px;' data-1000='opacity:1;top:0px;'>Apply now</a></div>
 
-			<div class="inner">
-				<h1>Entrepreneur?</h1>
-				<p>Do you always see monetizing possibilities? Are you business-minded? Are you very creative and innovative? Do you understand business jargon? Then come at SummerHacks - your team needs you - your work worths 40% of the whole project.</p>
-				<div class="center"><a href="#" class='applynowbtn'>Apply now</a></div>
-			</div>
+		</article>
+		<article class='programmer'>
+			<h1>Programmer?</h1>
+			<p>Turning caffeine and pizza into amazing software is one of your favourite activities? Then this is the event you don't want to miss. Brilliant coders are the most important ingredient to every team at SummerHacks.</p>
+			<div class='center'><a href="#" class='applynowbtn' data-700='opacity:0;top:200px;' data-1000='opacity:1;top:0px;'>Apply now</a></div>
+		</article>
+		<article class="entrepreneur">
+
+			<h1>Entrepreneur?</h1>
+			<p>Do you always see monetizing possibilities? Are you business-minded? Are you very creative and innovative? Do you understand business jargon? Then come at SummerHacks - your team needs your skills.</p>
+			<div class="center"><a href="#" class='applynowbtn' data-700='opacity:0;top:200px;' data-1000='opacity:1;top:0px;'>Apply now</a></div>
 		</article>
 
 	</section>
 
-	<section id='programme' data-0='display:none;position:fixed' data-2000='display: block'>
+	<section id='programme'>
 		<div class="wrapper">
 		
 		<article class='days'>
@@ -135,7 +124,7 @@
 
 			<div class="column">
 				<h2>SummerHacks</h2>
-				<p>A 48 hours hacakthon in Timișoara. The judging criteria is <strong>60% tech</strong> and <strong>40% business</strong>. Programmers, designer and entrepreneurs are welcome!</p>
+				<p>A 48 hours hacakthon in Timișoara. The judging criteria is <strong>60% tech</strong> and <strong>40% business</strong>. Programmers, designers and entrepreneurs are welcome!</p>
 			</div>
 
 			<div class="column">
@@ -156,25 +145,60 @@
 			</div>
 
 			<div class="column">
-				<h2>Location</h2>
-				<p>Startup Hubs Timisoara, str...</p>
+				<h2>What to hack?</h2>
+				<p>Anything. This is not an appathon or webathon, it's a hackathon. Hack whatever you want as long as it's pure awesome.</p>
 			</div>
+
+			<div class="longcol">
+				<h2>Location</h2>
+				<div class='content'>
+					<div class='pictures'>
+						<img src="/images/startuphubpic1.jpg" alt="startup hubs 700" /
+						><img src="/images/startuphubpic2.jpg" alt="startup hub 700" />
+					</div>
+
+					<div class='address'>
+						<div class='submenu'>
+							<a href="https://www.facebook.com/700StartupHub" target="_blank">Facebook</a>
+							<a href="http://www.startuphub.ro" target="_blank">startuphub.ro</a>
+						</div>
+						<img src="/images/startuphubsmall.png" alt='Startuphub logo' align='left'/>
+						<strong>StartupHub 700</strong><br />
+						City Business Centre, D Building, Ground Floor<br />
+						Str. C. Brediceanu, nr. 10, 300011<br />
+						Timișoara, Romania<br />
+						45.757139, 21.221099
+					</div>
+
+					<div id='map-canvas'></div>
+				</div>
+			</div>
+
 		</article>
-
-
-
 
 		</div>
 	</section>
 
-<!-- 	<section>
+	<section id="judges">
+		<div class="wrapper">
+			<h1>Judges and mentors</h1>
+			<p>Mentors and judges will be announced soon.</p>
+		</div>
 	</section>
 
-	last section
-	<footer id='footer'>
+	<section id="sponsors">
+		<div class="wrapper">
+			<h1>Our lovely sponsors</h1>
+			<h2>This event wouldn't have been possible without them. Big Thank You!</h2>
+			<article>
+				<img src="/images/ecs_logo.gif" alt='Electronics and Computer Science - University of Southampton' />
+			</article>
+			<article>
+				<img src="/images/startuphub.jpg" alt='StartupHub 700' />
+			</article>
+		</div>
+	</section>
 
-	</footer>
- -->
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

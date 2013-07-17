@@ -2,18 +2,22 @@
 	+box-shadow(0px, 0px, 20px, rgba(0,0,0,0.5))
 	:-webkit-perspective 650
 	:z-index 4
+	:min-height 800px
 	:position relative
+	:background url(/images/attending.png)
+
 	article
 		:width 33.33333333%
 		:float left
-		:height 100%
-		:background url(/images/attending.png)
+		:min-height 790px
 		:z-index 9
 		:position relative
+
+		:background-position center bottom
+		:background-repeat no-repeat
+
 		&:hover
-			// :background url(/images/attending_hover.png)
 			:z-index 10
-			// +box-shadow(0px, 0px, 20px, rgba(0,0,0,0.5))
 
 			.applynowbtn
 				+buttonStyle(#B20000)
@@ -35,6 +39,7 @@
 			+text-shadow(0px, 0px, 1px, #000)
 
 		.applynowbtn
+			:position relative
 			:text-decoration none
 			:display inline-block
 			:margin 0px auto
@@ -43,25 +48,21 @@
 		.center
 			:padding-top 20px
 
-		.inner
-			:height 100%
-			:background-position center bottom
-			:background-repeat no-repeat
 
-		&.designer .inner
+		&.designer
 			:background-image url(/images/emeza_lemon_gs.png)
 
-		&.designer:hover .inner
+		&.designer:hover
 			:background-image url(/images/emeza_lemon.png)
 
-		&.entrepreneur .inner
+		&.entrepreneur
 			:background-image url(/images/business_gs.png)
 
-		&.entrepreneur:hover .inner
+		&.entrepreneur:hover
 			:background-image url(/images/business.png)
 
-		&.programmer .inner
+		&.programmer
 			:background-image url(/images/developer_gs.png)
 
-		&.programmer:hover .inner
+		&.programmer:hover
 			:background-image url(/images/developer.png)
