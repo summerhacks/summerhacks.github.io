@@ -1,0 +1,32 @@
+body > footer
+	h1,h2,h3,h4,h5,h6
+		:margin-top 0px
+
+	:border-top 2px solid $treeroot
+	:background-image linear-gradient(to bottom, $treeroot,rgba($treeroot, 0) 100%)
+	:margin-top -3px
+	:padding-bottom 150px
+	:padding-top 30px
+
+	.wrapper
+		+clearfix
+
+	a
+		:color darken($lemon-green,30%)
+		&:hover
+			:color darken($lemon-green, 20%)
+
+	ul
+		:list-style none
+		:margin 0 0 10px 0
+		:padding 0
+		li
+			:margin 0
+			:padding 2px 0px
+			a
+				font-size: 1.2em
+
+
+	.column
+		+column(3)
+		:font-size 0.7em
