@@ -9,19 +9,23 @@ mkdir -p $1/css
 sass --style compressed ../css/main.sass:$1/css/styles.css
 
 # remove all <script> tags and add another one to js/summerhacks.js
-# sed -E 's/<script type=[^>]+><\/script>//g' ../index.html |
-# sed -E 's/<\/head>/<script src="\/js\/summerhacks.js"><\/script><\/head>/g' > $1/index.html
+sed -E 's/<script type=[^>]+><\/script>//g' ../index.html |
+sed -E 's/<\/head>/<script src="\/js\/summerhacks.js"><\/script><\/head>/g' > $1/index.html
 
 # compile the javascripts one by one
-# mkdir -p $1/js
+mkdir -p $1/js
 
 # cat ../js/raf-shim.js > $1/js/tmp.js
 # cat ../js/background.js >> $1/js/tmp.js
-# cat ../js/skrollr.min.js >> $1/js/tmp.js
-# cat ../js/skrollr.menu.min.js >> $1/js/tmp.js
 # cat ../js/init.js >> $1/js/tmp.js
 
-# java -jar yuicompressor.jar $1/js/tmp.js > $1/js/summerhacks.js
+java -jar yuicompressor.jar ../js/raf-shim.js > $1/js/summerhacks.js
+# cat ../js/raf-shim.js > $1/js/summerhacks.js
+# echo "\n" >> $1/js/summerhacks.js
+java -jar yuicompressor.jar ../js/background.js >> $1/js/summerhacks.js
+# echo "\n" >> $1/js/summerhacks.js
+java -jar yuicompressor.jar ../js/init.js >> $1/js/summerhacks.js
+# cat ../js/init.js >> $1/js/summerhacks.js
 
 # clear temporary file
 # rm $1/js/tmp.js

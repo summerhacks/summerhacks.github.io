@@ -20,8 +20,8 @@
 	}
 
 	window.addEventListener("load", function() {
-		skr = skrollr.init({});
-		skrollr.menu.init(skr);
+		// skr = skrollr.init({});
+		// skrollr.menu.init(skr);
 		clouds = new Clouds(3, -50, 350, document.getElementById("clouds"));
 		clouds.start();
 		cloudsStatus = true;
