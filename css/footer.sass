@@ -1,12 +1,13 @@
 body > footer
 	h1,h2,h3,h4,h5,h6
 		:margin-top 0px
+		:padding-top 15px
 
 	:border-top 2px solid $treeroot
 	:background-image linear-gradient(to bottom, $treeroot,rgba($treeroot, 0) 100%)
 	:margin-top -3px
-	:padding-bottom 150px
-	:padding-top 30px
+	:padding-bottom 70px
+	:padding-top 50px
 
 	.wrapper
 		+clearfix
@@ -29,4 +30,7 @@ body > footer
 
 	.column
 		+column(3)
-		:font-size 0.7em
+		:font-size 1em
+
+	.column h2:first-child
+		:padding-top 0px
