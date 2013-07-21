@@ -18,8 +18,8 @@ var Clouds = function(n, minTop, maxTop, domParent) {
 	this.running = false;
 
 	this.updateDom = function(cloud) {
-		cloud.dom.style.left = Math.round(cloud.left) + "px";
-		cloud.dom.style.top = Math.round(cloud.top) + "px";
+		cloud.dom.style.left = cloud.left + "px";
+		cloud.dom.style.top = cloud.top + "px";
 	}
 
 	this.createCloud = function(type) {
@@ -84,7 +84,6 @@ var Clouds = function(n, minTop, maxTop, domParent) {
 					cloud.left = -cloud.width;
 				}
 				cloud.dom.className = t.className;
-				console.log(cloud.fixedTop);
 			}
 
 			var tmp = Math.PI * cloud.vibration * cloud.left / window.innerWidth;
