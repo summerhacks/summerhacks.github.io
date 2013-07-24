@@ -19,6 +19,14 @@
 		});
 	}
 
+	var timeleft = function() {
+		var endDate = new Date(2013, 7, 9);
+		var now = new Date();
+		var left = endDate - now;
+		var days = Math.floor(left / (1000 * 60 * 60 * 24));
+		document.getElementById("timeleft").innerHTML = "You have <strong>" + days + " days </strong> left.";
+	};
+
 	window.addEventListener("load", function() {
 		// skr = skrollr.init({});
 		// skrollr.menu.init(skr);
@@ -27,6 +35,8 @@
 		cloudsStatus = true;
 
 		mapinit();
+
+		timeleft();
 	});
 
 	window.addEventListener("scroll", function() {
