@@ -20,7 +20,7 @@
 	}
 
 	var timeleft = function() {
-		var endDate = new Date(2013, 9, 9);
+		var endDate = new Date(2013, 7, 9);
 		var now = new Date();
 		var left = endDate - now;
 		var days = Math.ceil(left / (1000 * 60 * 60 * 24));
