@@ -1,5 +1,4 @@
 (function() {
-	var clouds, cloudsStatus=true, cloudsThreshold=1000;
 	var skr;
 
 	var map;
@@ -19,36 +18,13 @@
 		});
 	}
 
-	var timeleft = function() {
-		var endDate = new Date(2013, 7, 16);
-		var now = new Date();
-		var left = endDate - now;
-		var days = Math.ceil(left / (1000 * 60 * 60 * 24));
-		document.getElementById("timeleft").innerHTML = "You have <strong>" + days + " days </strong> left.";
-	};
 
 	window.addEventListener("load", function() {
 		// skr = skrollr.init({});
 		// skrollr.menu.init(skr);
-		clouds = new Clouds(3, -50, 350, document.getElementById("clouds"));
-		clouds.start();
-		cloudsStatus = true;
 
 		mapinit();
 
 		// timeleft();
-	});
-
-	window.addEventListener("scroll", function() {
-		if (clouds === undefined) return;
-
-		var newPos = window.pageYOffset;
-		if (newPos < cloudsThreshold && cloudsStatus === false) {
-			clouds.start();
-			cloudsStatus = true;
-		} else if (newPos > cloudsThreshold && cloudsStatus === true) {
-			clouds.stop();
-			cloudsStatus = false;
-		}
 	});
 })();

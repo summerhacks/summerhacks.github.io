@@ -20,11 +20,6 @@ mkdir -p $1/js
 # cat ../js/background.js >> $1/js/tmp.js
 # cat ../js/init.js >> $1/js/tmp.js
 
-java -jar yuicompressor.jar ../js/raf-shim.js > $1/js/summerhacks.js
-# cat ../js/raf-shim.js > $1/js/summerhacks.js
-# echo "\n" >> $1/js/summerhacks.js
-java -jar yuicompressor.jar ../js/background.js >> $1/js/summerhacks.js
-# echo "\n" >> $1/js/summerhacks.js
 java -jar yuicompressor.jar ../js/init.js >> $1/js/summerhacks.js
 # cat ../js/init.js >> $1/js/summerhacks.js
 
