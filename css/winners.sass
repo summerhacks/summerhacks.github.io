@@ -1,18 +1,26 @@
+$wheight: 500px
+$wdescpercent: 70%
+$wplacepaddingtop: 50px
+$winnerbgcol: lighten($lemon-green, 30%)
+$winnerbgcol2: lighten($lemon-green, 35%)
+
+
 #winners
 
 
 .winner
 	+clearfix()
-
-	:padding 100px 0
+	:padding 10px 0
 	.place
+		:padding-top $wplacepaddingtop
+		:height ($wheight - $wplacepaddingtop)
+		:width (100% - $wdescpercent)
 		:font-family "Times New Roman", serif
 		:font-size 9em
 		:text-align center
 		:line-height 0.7em
 		:font-weight bold
 		:float left
-		:width 30%
 		sup
 			:font-weight normal
 			:font-size 0.6em
@@ -30,41 +38,67 @@
 			p
 				:padding 10px 0
 
-	.team-members
-		:float left
-		:width 30%
-		div
-			+column(2)
-			:width 150px
-			:margin 5px
-			span
-				:font-weight bold
-				:text-align center
-				:display block
-				:padding 5px 0
-		img
-			:display block
-			:width 150px
-			:height 150px
-
-	ul
-		:list-style none
-		:margin 0
-		:padding 0
-		li
-			:margin 0
-			:padding 0
-
 	.description	
 		:float left
-		:width 40%	
+		:width $wdescpercent
+		:height $wheight
+		:position relative
+		>div
+			:position absolute
+			:bottom 0
+			:padding 30px
+			:background-color rgba(lighten($winnerbgcol,20%),0.75)
+			+text-shadow(0px, 0px, 50px, rgba(255,255,255,0.5))
+		.members
+			:margin-top 5px
+			:text-align left
+			em
+				:font-weight bold
 		h1
-			:margin-top 0
-		
+			:margin 0
 		p
 			:text-align justify
 			:line-height 1.23em
 			:font-size 1.1em
-			:padding 0 30px 0 0
+			:margin 0
+
 .first-place
-	:background-color lighten($lemon-green, 30%)
+	:background-color $winnerbgcol
+	:border-bottom 5px solid darken($winnerbgcol, 20%)
+	.description
+		:background url(../images/team_rasp.jpg) center center no-repeat
+		:float right
+		:max-width 960px
+
+.second-place
+	:background-color $winnerbgcol2
+	:border-bottom 5px solid darken($winnerbgcol2, 60%)
+	.description
+		:float left
+		:max-width 612px
+		:background url(../images/team_boner.jpg) top center no-repeat
+
+	.place
+		:float right
+
+.otherteamsbg
+	:background-color lighten($winnerbgcol2,30%)
+	:border-bottom 5px solid grayscale(darken($winnerbgcol2, 60%))
+
+
+.otherteam
+	:padding-bottom 30px
+	h2
+		:padding 10px
+	+column(4)
+	ul
+		:margin 0
+		:padding 0
+		:list-style none
+		li
+			:display block
+			:padding 0 10px
+			:margin 0
+			:font-weight bold
+	p
+		:padding 10px
