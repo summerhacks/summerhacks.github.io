@@ -1,0 +1,1 @@
+(function(){var a;var c;var b=function(){var e=new google.maps.LatLng(45.757139,21.221099);var d={zoom:15,center:e,mapTypeId:google.maps.MapTypeId.ROADMAP};c=new google.maps.Map(document.getElementById("map-canvas"),d);new google.maps.Marker({position:e,map:c,title:"StartupHub 700"})};window.addEventListener("load",function(){b()})})();
